@@ -1,0 +1,18 @@
+{
+  "name": "@liquid-labs/go-api",
+  "version": "0.0.1",
+  "description": "A collection of packages for building REST-ful APIs in go.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liquid-Labs/go-api.git"
+  },
+  "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liquid-Labs/go-api/issues"
+  },
+  "homepage": "https://github.com/Liquid-Labs/go-api#readme"
+}
