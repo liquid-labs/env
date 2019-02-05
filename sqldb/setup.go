@@ -17,7 +17,7 @@ func RegisterSetup(newSetupFuncs ...dbSetupFunc) {
   setupFuncs = append(setupFuncs, newSetupFuncs...)
 }
 
-func InitDb() {
+func InitDB() {
   var (
     connectionName = osext.MustGetenv("CLOUDSQL_CONNECTION_NAME")
     connectionProt = osext.MustGetenv("CLOUDSQL_CONNECTION_PROT")
