@@ -1,6 +1,6 @@
 {
   "name": "@liquid-labs/go-api",
-  "version": "0.0.1",
+  "version": "1.0.0-protottype.0",
   "description": "A collection of packages for building REST-ful APIs in go.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
