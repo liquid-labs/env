@@ -1,3 +1,3 @@
-# go-api
+# env
 
-A collection of packages for building REST-ful APIs in go.
+API extending basic environment variable access for convenience and simplicity.

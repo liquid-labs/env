@@ -1,18 +1,18 @@
 {
-  "name": "@liquid-labs/go-api",
+  "name": "@liquid-labs/env",
   "version": "1.0.0-protottype.0",
-  "description": "A collection of packages for building REST-ful APIs in go.",
+  "description": "API extending basic environment variable access for convenience and simplicity.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Liquid-Labs/go-api.git"
+    "url": "git+https://github.com/Liquid-Labs/env.git"
   },
   "author": "Zane Rockenbaugh <zane@liquid-labs.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Liquid-Labs/go-api/issues"
+    "url": "https://github.com/Liquid-Labs/env/issues"
   },
-  "homepage": "https://github.com/Liquid-Labs/go-api#readme"
+  "homepage": "https://github.com/Liquid-Labs/env#readme"
 }
