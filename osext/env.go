@@ -10,7 +10,7 @@ TODO: change this project to 'env'; the 'sqldb' stuff that was here will get fac
 func MustGet(k string) string {
   v := os.Getenv(k)
   if v == "" {
-    log.Panicf("%s environment variable not set.", k)
+    log.Panicf("'%s' environment variable not set.", k)
   }
   return v
 }
@@ -41,4 +41,10 @@ func IsProduction() bool {
 
 func IsStandardType() bool {
   return IsDev() || IsTest() || IsProduction()
+}
+
+func RequireRecognizedType() {
+  if !IsStandardType() {
+    log.Panicf(`'NODE_ENV' value of '%s' is not a recognized type.`, GetType())
+  }
 }
