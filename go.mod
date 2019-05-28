@@ -1,1 +1,1 @@
-module github.com/Liquid-Labs/go-api
+module github.com/Liquid-Labs/env
