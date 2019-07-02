@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/Liquid-Labs/env/issues"
   },
-  "homepage": "https://github.com/Liquid-Labs/env#readme"
+  "homepage": "https://github.com/Liquid-Labs/env#readme",
+  "devDependencies": {
+    "@liquid-labs/catalyst-scripts": "^1.0.0-alpha.22"
+  }
 }
