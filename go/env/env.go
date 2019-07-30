@@ -3,13 +3,12 @@ package env
 import (
   "log"
   "os"
+  "strings"
 )
-
-TODO: change this project to 'env'; the 'sqldb' stuff that was here will get factored out to catsql.
 
 func MustGet(k string) string {
   v := os.Getenv(k)
-  if v == "" {
+  if v == `` {
     log.Panicf("'%s' environment variable not set.", k)
   }
   return v
@@ -17,26 +16,36 @@ func MustGet(k string) string {
 
 func Get(k string) string { return os.Getenv(k) }
 
-const environmentKey = `NODE_ENV`
+var environmentKeys = []string{`NODE_ENV`, `CURR_ENV_PURPOSE`}
 
-func MustGetType() {
-  return MustGet(environmentKey)
+func MustGetType() string {
+  envType := GetType()
+  if envType == `` {
+    log.Panicf("Could not determine enviroment type. Set one of %s", strings.Join(environmentKeys, ", "))
+  }
+  return envType
 }
 
-func GetType() {
-  return Get(environmentKey)
+func GetType() string {
+  for _, key := range environmentKeys {
+    envType := Get(key)
+    if envType != `` {
+      return envType
+    }
+  }
+  return ``
 }
 
 func IsDev() bool {
-  return GetEnv() == `dev`
+  return GetType() == `dev`
 }
 
 func IsTest() bool {
-  return GetEnv() == `test`
+  return GetType() == `test`
 }
 
 func IsProduction() bool {
-  return GetEnv() == `produciton`
+  return GetType() == `produciton`
 }
 
 func IsStandardType() bool {
