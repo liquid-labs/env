@@ -1,6 +1,6 @@
 {
   "name": "@liquid-labs/env",
-  "version": "1.0.0-prototype.beta.0",
+  "version": "1.0.0-beta.0",
   "description": "API extending basic environment variable access for convenience and simplicity.",
   "scripts": {
     "test": "catalyst-scripts test",
