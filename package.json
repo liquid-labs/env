@@ -3,7 +3,9 @@
   "version": "1.0.0-prototype.beta.0",
   "description": "API extending basic environment variable access for convenience and simplicity.",
   "scripts": {
-    "test": "catalyst-scripts test"
+    "test": "catalyst-scripts test",
+    "preversion": "npm test",
+    "postversion": "git push; git push --tags"
   },
   "repository": {
     "type": "git",
