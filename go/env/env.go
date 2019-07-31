@@ -6,6 +6,8 @@ import (
   "strings"
 )
 
+func Get(k string) string { return os.Getenv(k) }
+
 func MustGet(k string) string {
   v := os.Getenv(k)
   if v == `` {
@@ -14,26 +16,37 @@ func MustGet(k string) string {
   return v
 }
 
-func Get(k string) string { return os.Getenv(k) }
-
-var environmentKeys = []string{`NODE_ENV`, `CURR_ENV_PURPOSE`}
-
-func MustGetType() string {
-  envType := GetType()
-  if envType == `` {
-    log.Panicf("Could not determine enviroment type. Set one of %s", strings.Join(environmentKeys, ", "))
-  }
-  return envType
+func Set(key, value string) {
+  os.Setenv(key, value)
 }
 
+func Unset(key string) {
+  os.Unsetenv(key)
+}
+
+const DefaultEnvTypeKey = `CURR_ENV_PURPOSE`
+var ValidEnvTypeKeys = []string{DefaultEnvTypeKey, `NODE_ENV`}
+
 func GetType() string {
-  for _, key := range environmentKeys {
+  for _, key := range ValidEnvTypeKeys {
     envType := Get(key)
     if envType != `` {
       return envType
     }
   }
   return ``
+}
+
+func MustGetType() string {
+  envType := GetType()
+  if envType == "" {
+    log.Panicf("Could not determine enviroment type. Set one of %s", strings.Join(ValidEnvTypeKeys, ", "))
+  }
+  return envType
+}
+
+func NoTypeSpecified() bool {
+  return GetType() == ``
 }
 
 func IsDev() bool {
@@ -45,7 +58,7 @@ func IsTest() bool {
 }
 
 func IsProduction() bool {
-  return GetType() == `produciton`
+  return GetType() == `production`
 }
 
 func IsStandardType() bool {
@@ -54,6 +67,16 @@ func IsStandardType() bool {
 
 func RequireRecognizedType() {
   if !IsStandardType() {
-    log.Panicf(`'NODE_ENV' value of '%s' is not a recognized type.`, GetType())
+    log.Panicf(`Environment type value of '%s' is not a recognized type. (source: %s)`, GetType(), GetTypeSource())
   }
+}
+
+func GetTypeSource() string {
+  for _, key := range ValidEnvTypeKeys {
+    envType := Get(key)
+    if envType != `` {
+      return key
+    }
+  }
+  return ``
 }
