@@ -1,0 +1,7 @@
+organization=liquid-labs
+projectKey=Liquid-Labs_env
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.485
+dashboardUrl=https://sonarcloud.io/dashboard?id=Liquid-Labs_env
+ceTaskId=AWz-O8Qkwl9UD-knUy0d
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWz-O8Qkwl9UD-knUy0d
